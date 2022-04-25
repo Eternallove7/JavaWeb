@@ -85,5 +85,36 @@
          session.setMaxInactiveInterval()
          session.invalidate() -> 强制让会话立即失效
 
+    3) session保存作用域
+        - session保存作用域是和具体的某一个session对应的
+        - 常用的API：
+            void session.setAttribute(k,v)
+            Object session.getAttribute(k)
+            void removeAttribute(k)
 
-6.Thymeleaf
+6.服务器内部转发以及客户端重定向
+        1) 服务器内部转发：request.getRequestDispatcher("...").forward(request,response)
+         - 一次请求响应的过程，对于客户端而言，内部经过了多少次转发，客户端是不知道的
+         - 地址栏没有变化
+        2) 客户端重定向：response.sendRedirect("...")
+         - 两次请求响应的过程，客户端肯定知道请求URL有变化
+         - 地址栏有变化
+
+
+7.Thymeleaf - 视图模板技术
+        1) 添加thymeleaf的jar包
+        2) 新建一个servlet类ViewBaseServlet
+        3) 在web.xml文件中添加配置
+            - 配置前缀 view-prefix
+            - 配置后缀 view-suffix
+        4) 使得我们的Servlet继承ViewBaseServlet
+
+        5) 根据逻辑视图名称 得到 物理视图名称
+        // 此处的视图名称是index
+        // 那么thymeleaf会将这个 逻辑视图名称 对应到 物理视图 名称上去
+        // 逻辑视图名称 ： index
+        // 物理视图名称 ： view-prefix + 逻辑视图名称 + view-suffix
+        // 真实视图名称 ：      /           index       .html
+        processTemplate("index",request,response);
+        6) 使用thymeleaf的标签
+            th:if   ,   th:unless   ,   th:each ,   th:text

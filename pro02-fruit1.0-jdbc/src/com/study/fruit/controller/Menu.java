@@ -2,7 +2,7 @@ package com.study.fruit.controller;
 
 import com.study.fruit.dao.FruitDAO;
 import com.study.fruit.dao.impl.FruitDAOImpl;
-import com.study.fruit.pojo.Fruit;
+import com.study.fruit.Fruit;
 
 import java.util.List;
 import java.util.Scanner;

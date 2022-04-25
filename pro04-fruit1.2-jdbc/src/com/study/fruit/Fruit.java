@@ -1,4 +1,4 @@
-package com.study.fruit.pojo;
+package com.study.fruit;
 
 /**
  * @author RenAshbell

@@ -1,7 +1,7 @@
 package com.study.fruit.dao.impl;
 
 import com.study.fruit.dao.FruitDAO;
-import com.study.fruit.pojo.Fruit;
+import com.study.fruit.Fruit;
 
 import java.sql.*;
 import java.util.ArrayList;

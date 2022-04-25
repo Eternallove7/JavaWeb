@@ -2,7 +2,7 @@ package com.study.servlets;
 
 import com.study.fruit.dao.FruitDAO;
 import com.study.fruit.dao.impl.FruitDAOImpl;
-import com.study.fruit.pojo.Fruit;
+import com.study.fruit.Fruit;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
