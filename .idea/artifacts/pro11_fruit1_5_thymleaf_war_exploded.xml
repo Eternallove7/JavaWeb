@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="pro11-fruit1.5-thymleaf:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pro11_fruit1_5_thymleaf_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="pro11-fruit1.6-thymleaf" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib" />
+          <element id="library" level="project" name="lib_thymeleaf" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="pro11-fruit1.6-thymleaf/web/Web" />
+    </root>
+  </artifact>
+</component>

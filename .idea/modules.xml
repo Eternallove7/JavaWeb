@@ -13,6 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/pro08-javaweb-servlet/pro08-javaweb-servlet.iml" filepath="$PROJECT_DIR$/pro08-javaweb-servlet/pro08-javaweb-servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/pro09-fruit1.4-thymleaf/pro09-fruit1.4-thymleaf.iml" filepath="$PROJECT_DIR$/pro09-fruit1.4-thymleaf/pro09-fruit1.4-thymleaf.iml" />
       <module fileurl="file://$PROJECT_DIR$/pro10-fruit1.5-thymleaf/pro10-fruit1.5-thymleaf.iml" filepath="$PROJECT_DIR$/pro10-fruit1.5-thymleaf/pro10-fruit1.5-thymleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro11-fruit1.6-thymleaf/pro11-fruit1.6-thymleaf.iml" filepath="$PROJECT_DIR$/pro11-fruit1.6-thymleaf/pro11-fruit1.6-thymleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro12-fruit1.7-thymleaf/pro12-fruit1.7-thymleaf.iml" filepath="$PROJECT_DIR$/pro12-fruit1.7-thymleaf/pro12-fruit1.7-thymleaf.iml" />
     </modules>
   </component>
 </project>
