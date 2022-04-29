@@ -1,5 +1,7 @@
 package com.study.myssm.myspringmvc;
 
+import com.study.myssm.io.BeanFactory;
+import com.study.myssm.io.ClassPathXmlApplicationContext;
 import com.study.myssm.util.StringUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -26,54 +28,20 @@ import java.util.Map;
 @WebServlet("*.do")
 public class DispatcherServlet extends ViewBaseServlet {
 
-    private Map<String,Object> beanMap = new HashMap<>();
+    private BeanFactory beanFactory;
 
     public DispatcherServlet(){
     }
 
     public void init() throws ServletException {
         super.init();
-        try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream("applicationContext.xml");
-            //1.创建DocumentBuilderFactory
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            //2.创建DocumentBuilder对象
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder() ;
-            //3.创建Document对象
-            Document document = documentBuilder.parse(inputStream);
-
-            //4.获取所有的bean节点
-            NodeList beanNodeList = document.getElementsByTagName("bean");
-            for(int i = 0 ; i<beanNodeList.getLength() ; i++){
-                Node beanNode = beanNodeList.item(i);
-                if(beanNode.getNodeType() == Node.ELEMENT_NODE){
-                    Element beanElement = (Element)beanNode ;
-                    String beanId =  beanElement.getAttribute("id");
-                    String className = beanElement.getAttribute("class");
-                    Class controllerBeanClass = Class.forName(className);
-                    Object beanObj = controllerBeanClass.newInstance() ;
-                    beanMap.put(beanId , beanObj) ;
-                }
-            }
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        beanFactory = new ClassPathXmlApplicationContext();
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //设置编码
-        request.setCharacterEncoding("UTF-8");
+        // request.setCharacterEncoding("UTF-8");
         //假设url是：  http://localhost:8080/pro15/hello.do
         //那么servletPath是：    /hello.do
         // 我的思路是：
@@ -84,7 +52,7 @@ public class DispatcherServlet extends ViewBaseServlet {
         int lastDotIndex = servletPath.lastIndexOf(".do") ;
         servletPath = servletPath.substring(0,lastDotIndex);
 
-        Object controllerBeanObj = beanMap.get(servletPath);
+        Object controllerBeanObj = beanFactory.getBean(servletPath);
 
         String operate = request.getParameter("operate");
         if(StringUtil.isEmpty(operate)){

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <beans>
+    <bean id="fruitDAO" class="com.study.fruit.dao.impl.FruitDAOImpl" />
+    <bean id="fruitService" class="com.study.fruit.service.impl.FruitServiceImpl">
+    <!--property标签用来表示属性; name表示属性名 ; ref表示引用其他bean的id值-->
+        <property name="fruitDAO" ref="fruitDAO"/>
+    </bean>>
     <!-- 这个bean标签的作用是 将来servletpath中涉及的名字对应的是fruit，那么就要FruitController这个类来处理 -->
-    <bean id="fruit" class="com.study.fruit.controllers.FruitController"/>
+    <bean id="fruit" class="com.study.fruit.controllers.FruitController">
+        <property name="fruitService" ref="fruitService"/>
+    </bean>
 </beans>
 
 
