@@ -1,29 +1,17 @@
 package com.study.myssm.myspringmvc;
 
-import com.study.myssm.io.BeanFactory;
-import com.study.myssm.io.ClassPathXmlApplicationContext;
+import com.study.myssm.ioc.BeanFactory;
+import com.study.myssm.ioc.ClassPathXmlApplicationContext;
 import com.study.myssm.util.StringUtil;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet("*.do")
 public class DispatcherServlet extends ViewBaseServlet {
